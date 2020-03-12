@@ -1,56 +1,3 @@
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux'
-// import { withRouter } from 'react-router-dom';
-
-// import Nav from './Nav';
-// import PlanList from './plan/PlanList'
-
-// import ProfileForm from './profile/ProfileForm';
-
-// class Page extends Component {
-
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             plans: []
-//         }
-//     }
-
-//     render() {
-//         const props = this.props
-//         return (
-//             <div>
-//                 <Nav />
-//                 <div className="container">
-//                     <ProfileForm />
-//                     <div className="col-3of5 bg-white">
-//                         <PlanList />
-//                     </div>
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
-
-// const mapState = state => ({
-//     profile: state.user.profile,
-//     token: state.user.token,
-//     tweets: state.tweets
-// })
-
-// const mapDispatch = dispatch => ({
-//     loadData: () => dispatch.tweets.loadData(),
-//     updateUser: user => dispatch.user.update(user),
-//     logout: () => dispatch.user.logout(),
-//     addTweet: tweet => dispatch.tweets.add(tweet),
-//     removeTweet: id => dispatch.tweets.remove(id)
-// })
-
-// export default withRouter(connect(mapState, mapDispatch)(Page));
-
-// // export default Page;
-
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
@@ -59,6 +6,8 @@ import Profile from './Profile';
 import ProfileForm from './ProfileForm'
 import PlanList from './Planlist';
 import './Dashboard2.css';
+import {Row, Container} from 'reactstrap';
+import { Grid } from '@material-ui/core';
 
 
 export default class Dashboard2 extends Component {
@@ -92,13 +41,15 @@ export default class Dashboard2 extends Component {
   render() {
     return (
       <div>
-        <div className="container">
-          <Route path='/dashboard2' exact render={() => <Profile />} />
-          <Route path='/dashboard/edit' render={() => <ProfileForm />} />
-          <div className="col-3of5 bg-white">
-              <PlanList plans={this.state.plans} />
-          </div>
-        </div>
+        <Row>
+          <Grid item xs={6}>
+            <Route path='/dashboard2' exact render={() => <Profile />} />
+            <Route path='/dashboard/edit' render={() => <ProfileForm />} />
+          </Grid>
+          <Grid item xs={6}>
+            <PlanList plans={this.state.plans} />
+          </Grid>
+        </Row>
       </div>
     )
   }
