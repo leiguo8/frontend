@@ -28,6 +28,7 @@ import Post from "./components/post/Post";
 import NotFound from "./components/not-found/NotFound";
 import Predict from "./components/layout/Predict";
 import PlanMap from "./components/map/PlanMap"
+import Plan from './components/plan/Plan'
 
 import "./App.css";
 // import '~antd/dist/antd.css'
@@ -70,6 +71,7 @@ class App extends Component {
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/dashboard2" component={Dashboard2} />
               <Route exact path="/map" component={PlanMap} />
+              <Route exact path="/plan" component={Plan} />
 
 
               {/* <Switch>

@@ -16,9 +16,12 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { LinearProgress } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    
+    // height: '100px'
     // maxWidth: "100%",
     // height: 300 
     // padding: "-10px"
@@ -43,8 +46,11 @@ const useStyles = makeStyles(theme => ({
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9,
-    marginTop:'30'
-  }
+    marginTop:'30',
+  },
+  review: {
+    width: "400px"
+  },
 }));
 
 export default function RecipeReviewCard(props) {
@@ -55,10 +61,16 @@ export default function RecipeReviewCard(props) {
     setExpanded(!expanded);
   };
 
+  const [value, setValue] = React.useState('Controlled');
+
+  const handleChange = event => {
+    setValue(event.target.value);
+  };
+
   
 
   return (
-    <div>
+    <div >
       <Card className={classes.root}>
         <CardHeader
           action={
@@ -114,6 +126,14 @@ export default function RecipeReviewCard(props) {
           <Typography variant="body2" color="textSecondary" component="p">
             {"OpenTime: " + props.plan.openTime}
           </Typography>
+          <TextField className={classes.review}
+          id="outlined-multiline-static"
+          label="Please leave your review"
+          multiline
+          rows="4"
+          defaultValue=""
+          variant="outlined"
+        />
         
           </CardContent>
         </Collapse>
