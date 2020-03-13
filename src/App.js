@@ -69,7 +69,7 @@ class App extends Component {
               <Route exact path="/profile/:handle" component={Profile} />
               <Route exact path="/predict" component={Predict} />
               <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/dashboard2" component={Dashboard2} />
+              {/* <Route exact path="/dashboard2" component={Dashboard2} /> */}
               <Route exact path="/map" component={PlanMap} />
               <Route exact path="/plan" component={Plan} />
 

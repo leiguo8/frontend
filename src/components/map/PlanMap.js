@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import DailyPlan from './DailyPlan';
 import {Row, Container} from 'reactstrap';
 import { Grid } from '@material-ui/core';
-import Axio from 'axios'
+import Axio from 'axios';
 
 export default class PlanMap extends Component {
 
@@ -13,7 +13,7 @@ export default class PlanMap extends Component {
       days: {
         "planId": null,
         "userId": 1,
-        "date": null,
+        "date": '2020-0301',
         "dailyPlanList": [
           {
             "placeList": [
