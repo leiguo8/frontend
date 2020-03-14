@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlaceItem from './PlaceItem';
 import styled from 'styled-components';
+import Axios from 'axios'
 
 const Container = styled.div`
   width: 400px;
@@ -23,6 +24,7 @@ export default class PlaceList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // placelist: []
       placelist: [
         {
             "placeId": 1,
@@ -207,6 +209,19 @@ export default class PlaceList extends Component {
     ]
     }
   }
+
+  // componentDidMount() {
+  //   Axios.get("http://3.136.86.37:8080/places")
+  //           .then(res => {
+  //               if (res.data != null) {
+  //                   console.log(res.data)
+  //                   const localData = res.data;
+  //                   this.setState({
+  //                       placelist: localData
+  //                   })
+  //               }
+  //           })
+  // }
   render() {
     return (
       <Container>
