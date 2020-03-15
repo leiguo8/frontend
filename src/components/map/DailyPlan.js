@@ -7,6 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PlanItem from './PlanItem';
+import { Link } from 'react-router-dom';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -62,6 +63,7 @@ export default function DailyPlan(props) {
           })}
         </Tabs>
       </AppBar>
+      <div>
       {props.days.dailyPlanList.map((planitem) => {
         return (
           <div>
@@ -71,6 +73,11 @@ export default function DailyPlan(props) {
           </div>
         )
       })}
+      <div class="text-center"> 
+        <Link class="btn btn-outline-secondary" to="../plan">Edit</Link> 
+      </div>
+      </div>
+
     </div>
   );
 }
