@@ -3,13 +3,43 @@ import DailyPlan from './DailyPlan';
 import {Row, Container} from 'reactstrap';
 import { Grid } from '@material-ui/core';
 import Axio from 'axios';
+import MapContainer from './MapDemo';
+import "./MapContainer.css";
+
+
+// const mapStyles = {
+//   flexDirection: left,
+//   width: '50%',
+//   height: '100%',
+// };
+//
+// const PlanStyles = {
+//   flexDirection: right,
+//   width: '50%',
+//   height: '100%',
+// };
 
 export default class PlanMap extends Component {
 
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
+      activeDate: 0,
+      data : [
+        {
+          lat: 37.785845,
+          lng: -122.400965
+        },
+        {
+          lat: 37.777292,
+          lng: -122.43261
+        },
+        {
+          lat: 37.8081269,
+          lng: -122.4253858
+        }
+      ],
       days: {
         "planId": null,
         "userId": 1,
@@ -62,7 +92,7 @@ export default class PlanMap extends Component {
           }
         ]
       }
-    }
+    };
 
     // this.state = {
     //   days: []
@@ -82,16 +112,16 @@ export default class PlanMap extends Component {
   //       })
 // }
 
+
   render() {
     return (
       <Container fluid>
-        <Row>
-          <Grid xs={6}>
-            {/* <DailyPlan /> */}
-            Google Map
+        <Row className="plan-map-container">
+          <Grid xs={12} className="Grid-map">
+            <MapContainer className="map-container" center={this.state.data[1]} zoom={3} data={this.state.data} />
           </Grid>
-          <Grid xs={6}>
-            <DailyPlan days = {this.state.days}/>
+          <Grid xs={6} className="Grid-plan">
+            <DailyPlan className="daily-plan" days = {this.state.days}/>
           </Grid>
         </Row>
       </Container>
